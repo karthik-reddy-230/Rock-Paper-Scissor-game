@@ -1,0 +1,21 @@
+name: Run Rock Paper Scissors
+
+on: [push, pull_request]  # Runs when code is pushed or a pull request is opened
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Replace with your required version
+
+      - name: Verify files exist
+        run: ls -R  # Check if the script exists
+
+      - name: Run Rock Paper Scissors script
+        run: python Rock-paper-scissors-game.py
